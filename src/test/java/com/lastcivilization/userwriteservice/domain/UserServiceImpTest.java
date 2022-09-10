@@ -36,18 +36,19 @@ class UserServiceImpTest {
     private UserServiceImp underTest;
 
     @Test
-    void createUser() {
+    void shouldCreateUser() {
         //given
         when(equipmentService.createNewEquipment()).thenReturn(0L);
         when(statsService.createNewStats()).thenReturn(0L);
         doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(userRepository).save(any(UserDto.class));
+        UserDto expectedDto = buildUserDto();
         //when
         UserDto userDto = underTest.createUser(USER_LOGIN, USER_EMAIL, USER_KEYCLOAK_ID);
         //then
-        assertThat(userDto.getLogin()).isEqualTo(USER_LOGIN);
-        assertThat(userDto.getEmail()).isEqualTo(USER_EMAIL);
-        assertThat(userDto.getKeycloakId()).isEqualTo(USER_KEYCLOAK_ID);
-        assertThat(userDto.getEquipment()).isEqualTo(0L);
-        assertThat(userDto.getStats()).isEqualTo(0L);
+        assertThat(userDto).isEqualTo(expectedDto);
+    }
+
+    private UserDto buildUserDto() {
+        return new UserDto(null, USER_KEYCLOAK_ID, USER_LOGIN, USER_EMAIL, 0L, 0L);
     }
 }
