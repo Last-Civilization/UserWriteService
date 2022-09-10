@@ -12,5 +12,7 @@ spring:
   cloud:
     config:
       token: last-civilization
+  profiles:
+    active: dev
 server:
   port: 0
