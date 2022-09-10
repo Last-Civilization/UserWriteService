@@ -17,35 +17,30 @@ databaseChangeLog:
               - column:
                   name: keycloak_id
                   type: VARCHAR
-                  autoIncrement: true
                   constraints:
                     nullable: false
                     unique: true
               - column:
                   name: login
                   type: VARCHAR
-                  autoIncrement: true
                   constraints:
                     nullable: false
                     unique: true
               - column:
                   name: email
                   type: VARCHAR
-                  autoIncrement: true
                   constraints:
                     nullable: false
                     unique: true
               - column:
                   name: stats
                   type: BIGINT
-                  autoIncrement: true
                   constraints:
                     nullable: false
                     unique: true
               - column:
                   name: equipment
                   type: BIGINT
-                  autoIncrement: true
                   constraints:
                     nullable: false
                     unique: true
