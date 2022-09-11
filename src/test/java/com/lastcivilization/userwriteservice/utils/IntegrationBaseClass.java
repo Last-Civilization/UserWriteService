@@ -40,5 +40,7 @@ public class IntegrationBaseClass {
         registry.add("spring.rabbitmq.username", rabbitMQContainer::getAdminUsername);
         registry.add("spring.rabbitmq.password", rabbitMQContainer::getAdminPassword);
         registry.add("spring.datasource.url", () -> "jdbc:tc:postgresql:14-alpine:///test");
+        registry.add("eureka.client.register-with-eureka", () -> "false");
+        registry.add("eureka.client.fetch-registry", () -> "false");
     }
 }
