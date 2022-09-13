@@ -49,6 +49,6 @@ class UserServiceImpTest {
     }
 
     private UserDto buildUserDto() {
-        return new UserDto(null, USER_KEYCLOAK_ID, USER_LOGIN, USER_EMAIL, 0L, 0L);
+        return new UserDto(null, USER_KEYCLOAK_ID, USER_LOGIN, USER_EMAIL, 0L, 0L, 0);
     }
 }
