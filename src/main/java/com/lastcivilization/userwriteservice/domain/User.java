@@ -8,9 +8,9 @@ class User {
     private String email;
     private Long stats;
     private Long equipment;
-    private int money;
+    private Long money;
 
-    public User(Long id, String keycloakId, String login, String email, Long stats, Long equipment, int money) {
+    public User(Long id, String keycloakId, String login, String email, Long stats, Long equipment, Long money) {
         this.id = id;
         this.keycloakId = keycloakId;
         this.login = login;
@@ -68,11 +68,11 @@ class User {
         this.equipment = equipment;
     }
 
-    public int getMoney() {
+    public Long getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(Long money) {
         this.money = money;
     }
 
@@ -84,7 +84,7 @@ class User {
         private String email;
         private Long stats;
         private Long equipment;
-        private int money = 0;
+        private Long money;
 
         private Builder() {
         }
@@ -123,7 +123,7 @@ class User {
             return this;
         }
 
-        public Builder money(int money){
+        public Builder money(Long money){
             this.money = money;
             return this;
         }
