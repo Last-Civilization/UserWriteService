@@ -2,15 +2,15 @@ package com.lastcivilization.userwriteservice.domain;
 
 class User {
 
-    private Long id;
+    private long id;
     private String keycloakId;
     private String login;
     private String email;
-    private Long stats;
-    private Long equipment;
+    private long stats;
+    private long equipment;
     private int money;
 
-    public User(Long id, String keycloakId, String login, String email, Long stats, Long equipment, int money) {
+    public User(long id, String keycloakId, String login, String email, Long stats, Long equipment, int money) {
         this.id = id;
         this.keycloakId = keycloakId;
         this.login = login;
@@ -78,7 +78,7 @@ class User {
 
     public static final class Builder {
 
-        private Long id;
+        private long id;
         private String keycloakId;
         private String login;
         private String email;
@@ -93,7 +93,7 @@ class User {
             return new Builder();
         }
 
-        public Builder id(Long id) {
+        public Builder id(long id) {
             this.id = id;
             return this;
         }

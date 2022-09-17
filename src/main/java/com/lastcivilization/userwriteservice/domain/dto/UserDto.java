@@ -1,7 +1,7 @@
 package com.lastcivilization.userwriteservice.domain.dto;
 
 public record UserDto (
-        Long id,
+        long id,
         String keycloakId,
         String login,
         String email,
