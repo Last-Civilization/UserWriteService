@@ -26,7 +26,7 @@ public class UserServiceImp implements UserService {
         User user = buildUser(login, email, keycloakId);
         user.setEquipment(equipmentService.createNewEquipment());
         user.setStats(statsService.createNewStats());
-        user.setMoney(paymentService.createNewAccount());
+        user.setAccount(paymentService.createNewAccount());
         UserDto userDto = Mapper.toDto(user);
         return userRepository.save(userDto);
     }

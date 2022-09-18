@@ -16,7 +16,7 @@ class KeycloakListenerTest extends IntegrationBaseClass{
     private static final String KEYCLOAK_ID = "d1ba60c5-97c1-4b54-b636" +
             "-90541baef365";
     private static final String USERNAME = "test2";
-    private static final String EMAIL = "tests2@test.pl";
+    private static final String EMAIL = "test2@test.pl";
 
     @Test
     void shouldHandleUserCreateAccount() {

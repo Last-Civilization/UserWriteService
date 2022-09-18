@@ -31,5 +31,5 @@ class UserEntity {
     private String email;
     private Long stats;
     private Long equipment;
-    private Long money;
+    private Long account;
 }

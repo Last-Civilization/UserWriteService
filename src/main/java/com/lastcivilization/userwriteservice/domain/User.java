@@ -8,16 +8,16 @@ class User {
     private String email;
     private Long stats;
     private Long equipment;
-    private Long money;
+    private Long account;
 
-    public User(Long id, String keycloakId, String login, String email, Long stats, Long equipment, Long money) {
+    public User(Long id, String keycloakId, String login, String email, Long stats, Long equipment, Long account) {
         this.id = id;
         this.keycloakId = keycloakId;
         this.login = login;
         this.email = email;
         this.stats = stats;
         this.equipment = equipment;
-        this.money = money;
+        this.account = account;
     }
 
     public Long getId() {
@@ -68,12 +68,12 @@ class User {
         this.equipment = equipment;
     }
 
-    public Long getMoney() {
-        return money;
+    public Long getAccount() {
+        return account;
     }
 
-    public void setMoney(Long money) {
-        this.money = money;
+    public void setAccount(Long account) {
+        this.account = account;
     }
 
     public static final class Builder {
@@ -84,7 +84,7 @@ class User {
         private String email;
         private Long stats;
         private Long equipment;
-        private Long money;
+        private Long account;
 
         private Builder() {
         }
@@ -123,13 +123,13 @@ class User {
             return this;
         }
 
-        public Builder money(Long money){
-            this.money = money;
+        public Builder account(Long account){
+            this.account = account;
             return this;
         }
 
         public User build() {
-            return new User(id, keycloakId, login, email, stats, equipment, money);
+            return new User(id, keycloakId, login, email, stats, equipment, account);
         }
     }
 }
