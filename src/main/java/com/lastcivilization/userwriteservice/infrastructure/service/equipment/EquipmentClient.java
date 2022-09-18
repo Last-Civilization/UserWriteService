@@ -1,4 +1,4 @@
-package com.lastcivilization.userwriteservice.infrastructure.service;
+package com.lastcivilization.userwriteservice.infrastructure.service.equipment;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

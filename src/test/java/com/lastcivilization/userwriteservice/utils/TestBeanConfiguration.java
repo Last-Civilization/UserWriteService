@@ -1,6 +1,7 @@
 package com.lastcivilization.userwriteservice.utils;
 
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
+import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +26,16 @@ class TestBeanConfiguration {
         return new StatsService() {
             @Override
             public Long createNewStats() {
+                return 0L;
+            }
+        };
+    }
+
+    @Bean
+    PaymentService paymentService(){
+        return new PaymentService() {
+            @Override
+            public Long createNewAccount() {
                 return 0L;
             }
         };

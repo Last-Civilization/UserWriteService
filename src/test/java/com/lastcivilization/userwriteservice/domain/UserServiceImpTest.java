@@ -2,6 +2,7 @@ package com.lastcivilization.userwriteservice.domain;
 
 import com.lastcivilization.userwriteservice.domain.dto.UserDto;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
+import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
 import com.lastcivilization.userwriteservice.domain.port.UserService;
@@ -31,6 +32,8 @@ class UserServiceImpTest {
     private StatsService statsService;
     @Mock
     private UserRepository userRepository;
+    @Mock
+    private PaymentService paymentService;
 
     @InjectMocks
     private UserServiceImp underTest;
@@ -40,6 +43,7 @@ class UserServiceImpTest {
         //given
         when(equipmentService.createNewEquipment()).thenReturn(0L);
         when(statsService.createNewStats()).thenReturn(0L);
+        when(paymentService.createNewAccount()).thenReturn(0L);
         doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(userRepository).save(any(UserDto.class));
         UserDto expectedDto = buildUserDto();
         //when
@@ -49,6 +53,6 @@ class UserServiceImpTest {
     }
 
     private UserDto buildUserDto() {
-        return new UserDto(null, USER_KEYCLOAK_ID, USER_LOGIN, USER_EMAIL, 0L, 0L, 0);
+        return new UserDto(null, USER_KEYCLOAK_ID, USER_LOGIN, USER_EMAIL, 0L, 0L, 0L);
     }
 }

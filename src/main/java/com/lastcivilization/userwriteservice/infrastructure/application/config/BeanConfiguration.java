@@ -2,6 +2,7 @@ package com.lastcivilization.userwriteservice.infrastructure.application.config;
 
 import com.lastcivilization.userwriteservice.domain.UserServiceImp;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
+import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
 import com.lastcivilization.userwriteservice.domain.port.UserService;
@@ -18,7 +19,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 class BeanConfiguration {
 
     @Bean
-    public UserService userService(UserRepository userRepository, EquipmentService equipmentService, StatsService statsService){
-        return new UserServiceImp(statsService,equipmentService, userRepository);
+    public UserService userService(UserRepository userRepository, EquipmentService equipmentService, StatsService statsService, PaymentService paymentService){
+        return new UserServiceImp(statsService,equipmentService, paymentService, userRepository);
     }
 }
