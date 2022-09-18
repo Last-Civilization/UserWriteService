@@ -4,13 +4,15 @@ import com.lastcivilization.userwriteservice.domain.dto.UserDto;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.lastcivilization.userwriteservice.infrastructure.database.EntityMapper.MAPPER;
 
-@Component
+@Service
 @RequiredArgsConstructor
 class UserRepositoryAdapter implements UserRepository {
 
