@@ -16,6 +16,6 @@ class StatsServiceAdapter implements StatsService {
 
     @Override
     public Long createNewStats() {
-        return statsClient.createNewStats();
+        return statsClient.createNewStats().id();
     }
 }

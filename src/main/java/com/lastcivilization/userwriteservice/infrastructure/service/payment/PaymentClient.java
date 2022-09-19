@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.PostMapping;
 interface PaymentClient {
 
     @PostMapping("/payments")
-    Long createNewAccount();
+    Payment createNewAccount();
 }

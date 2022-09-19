@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 interface EquipmentClient {
 
     @PostMapping("/equipments")
-    Long createNewEquipment();
+    Equipment createNewEquipment();
 }

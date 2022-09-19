@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 interface StatsClient {
 
     @PostMapping("/stats")
-    Long createNewStats();
+    Stats createNewStats();
 }

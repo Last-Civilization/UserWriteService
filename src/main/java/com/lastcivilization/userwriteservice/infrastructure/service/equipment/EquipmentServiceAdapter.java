@@ -15,6 +15,6 @@ class EquipmentServiceAdapter implements EquipmentService {
     private final EquipmentClient equipmentClient;
     @Override
     public Long createNewEquipment() {
-        return equipmentClient.createNewEquipment();
+        return equipmentClient.createNewEquipment().id();
     }
 }

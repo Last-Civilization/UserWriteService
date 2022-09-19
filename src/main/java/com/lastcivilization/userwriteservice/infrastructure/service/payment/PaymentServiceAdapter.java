@@ -14,6 +14,6 @@ class PaymentServiceAdapter implements PaymentService {
 
     @Override
     public Long createNewAccount() {
-        return paymentClient.createNewAccount();
+        return paymentClient.createNewAccount().id();
     }
 }
