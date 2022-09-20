@@ -3,18 +3,15 @@ package com.lastcivilization.userwriteservice.infrastructure.keycloak;
 import com.lastcivilization.userwriteservice.domain.dto.UserDto;
 import com.lastcivilization.userwriteservice.utils.IntegrationBaseClass;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class KeycloakListenerTest extends IntegrationBaseClass{
 
-    private static final String KEYCLOAK_ID = "d1ba60c5-97c1-4b54-b636" +
-            "-90541baef365";
+    private static final String KEYCLOAK_ID = "d1ba60c5-97c1-4b54-b636-90541baef365";
     private static final String USERNAME = "test2";
     private static final String EMAIL = "test2@test.pl";
 
