@@ -19,7 +19,7 @@ class KeycloakListenerTest extends IntegrationBaseClass{
     private static final String EMAIL = "test2@test.pl";
 
     @Test
-    void shouldHandleUserCreateAccount() {
+    void shouldHandleUserCreateAccount() throws InterruptedException {
         //given
         rabbitTemplate.convertAndSend("keycloak.queue", "{\n" +
                 "  \"@class\" : \"com.github.aznamier.keycloak.event.provider" +
@@ -45,9 +45,8 @@ class KeycloakListenerTest extends IntegrationBaseClass{
                 "  }\n" +
                 "}");
         //when
+        Thread.sleep(5000, 0);
         List<UserDto> users = userRepository.findAll();
-
-        System.out.println(users.size());
         //then
         assertThat(users.stream().filter(user -> (Objects.equals(user.keycloakId(), KEYCLOAK_ID) && Objects.equals(user.login(), USERNAME)  && Objects.equals(user.email(), EMAIL)))).isNotEmpty();
     }
