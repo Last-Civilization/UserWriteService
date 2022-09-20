@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(value = "payment-read-service", url = "${test.url}")
+@FeignClient(value = "payment-read-service", url = "${test.url:#{null}}")
 public interface PaymentClient {
 
     @PostMapping("/payments")

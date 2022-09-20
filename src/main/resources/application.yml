@@ -16,5 +16,3 @@ spring:
     active: dev
 server:
   port: 0
-test:
-  url:

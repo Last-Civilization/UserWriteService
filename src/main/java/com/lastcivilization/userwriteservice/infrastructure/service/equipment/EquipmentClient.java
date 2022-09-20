@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "equipment-read-service", url = "${test.url}")
+@FeignClient(value = "equipment-read-service", url = "${test.url:#{null}}")
 public interface EquipmentClient {
 
     @PostMapping("/equipments")
