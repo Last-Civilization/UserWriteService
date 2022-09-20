@@ -32,16 +32,6 @@ public class IntegrationBaseClass {
     @Autowired
     protected UserRepository userRepository;
 
-    @Autowired
-    private WireMockServer wireMockServer;
-
-    @BeforeEach
-    void setUp() {
-        FeignClientMocks.mockEquipment(wireMockServer);
-        FeignClientMocks.mockPayments(wireMockServer);
-        FeignClientMocks.mockStats(wireMockServer);
-    }
-
     @DynamicPropertySource
     private static void init(DynamicPropertyRegistry registry){
         registry.add("spring.rabbitmq.host", rabbitMQContainer::getHost);

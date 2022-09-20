@@ -19,6 +19,10 @@ class WireMockConfiguartion {
 
     @Bean(initMethod = "start", destroyMethod = "stop")
     public WireMockServer wireMockServer(){
-        return new WireMockServer(9561);
+        WireMockServer wireMockServer = new WireMockServer(9561);
+        FeignClientMocks.mockEquipment(wireMockServer);
+        FeignClientMocks.mockPayments(wireMockServer);
+        FeignClientMocks.mockStats(wireMockServer);
+        return wireMockServer;
     }
 }
