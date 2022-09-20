@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient("stats-read-service")
+@FeignClient(value = "stats-read-service", url = "http://localhost:9561")
 interface StatsClient {
 
     @PostMapping("/stats")

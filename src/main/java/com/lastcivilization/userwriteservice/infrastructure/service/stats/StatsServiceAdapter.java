@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Profile({"dev", "prod"})
 class StatsServiceAdapter implements StatsService {
 
     private final StatsClient statsClient;

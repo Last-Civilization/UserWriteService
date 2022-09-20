@@ -47,6 +47,7 @@ class KeycloakListenerTest extends IntegrationBaseClass{
         //when
         List<UserDto> users = userRepository.findAll();
 
+        System.out.println(users.size());
         //then
         assertThat(users.stream().filter(user -> (Objects.equals(user.keycloakId(), KEYCLOAK_ID) && Objects.equals(user.login(), USERNAME)  && Objects.equals(user.email(), EMAIL)))).isNotEmpty();
     }
