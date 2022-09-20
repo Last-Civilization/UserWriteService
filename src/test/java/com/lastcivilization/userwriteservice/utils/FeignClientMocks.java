@@ -31,6 +31,6 @@ class FeignClientMocks {
                 .willReturn(aResponse()
                         .withStatus(OK.value())
                         .withHeader("Content-Type", APPLICATION_JSON_VALUE)
-                        .withBody("{ \"id\":0}")));
+                        .withBody("{ \"id\":0, \"money\":0}")));
     }
 }
