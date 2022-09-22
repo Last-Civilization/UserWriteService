@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@ComponentScan("com.lastcivilization.userwriteservice.infrastructure")
+@ComponentScan("com.lastcivilization.userwriteservice")
 @EnableJpaRepositories("com.lastcivilization.userwriteservice.infrastructure.database")
 @EntityScan("com.lastcivilization.userwriteservice.infrastructure.database")
 class BeanConfiguration {
