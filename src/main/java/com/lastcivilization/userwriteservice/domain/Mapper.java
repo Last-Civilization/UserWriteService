@@ -1,10 +1,10 @@
 package com.lastcivilization.userwriteservice.domain;
 
-import com.lastcivilization.userwriteservice.domain.dto.UserDto;
+import com.lastcivilization.userwriteservice.domain.view.UserModel;
 
 class Mapper {
 
-    static UserDto toDto(User user){
-        return new UserDto(user.getId(), user.getKeycloakId(), user.getLogin(), user.getEmail(), user.getStats(), user.getEquipment(), user.getAccount());
+    static UserModel toDto(User user){
+        return new UserModel(user.getId(), user.getKeycloakId(), user.getLogin(), user.getEmail(), user.getStats(), user.getEquipment(), user.getAccount());
     }
 }

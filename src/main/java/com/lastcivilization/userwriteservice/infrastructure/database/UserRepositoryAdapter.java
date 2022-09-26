@@ -1,10 +1,8 @@
 package com.lastcivilization.userwriteservice.infrastructure.database;
 
-import com.lastcivilization.userwriteservice.domain.dto.UserDto;
+import com.lastcivilization.userwriteservice.domain.view.UserModel;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,14 +17,14 @@ class UserRepositoryAdapter implements UserRepository {
     private final UserJpaRepository userJpaRepository;
 
     @Override
-    public UserDto save(UserDto userDto) {
-        UserEntity userEntity = MAPPER.toEntity(userDto);
+    public UserModel save(UserModel userModel) {
+        UserEntity userEntity = MAPPER.toEntity(userModel);
         UserEntity savedUserEntity = userJpaRepository.save(userEntity);
         return MAPPER.toDto(savedUserEntity);
     }
 
     @Override
-    public List<UserDto> findAll() {
+    public List<UserModel> findAll() {
         return userJpaRepository.findAll()
                 .stream().map(MAPPER::toDto)
                 .collect(Collectors.toList());

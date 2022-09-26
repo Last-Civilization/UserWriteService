@@ -1,6 +1,6 @@
 package com.lastcivilization.userwriteservice.infrastructure.keycloak;
 
-import com.lastcivilization.userwriteservice.domain.dto.UserDto;
+import com.lastcivilization.userwriteservice.domain.view.UserModel;
 import com.lastcivilization.userwriteservice.utils.IntegrationBaseClass;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +43,7 @@ class KeycloakListenerTest extends IntegrationBaseClass{
                 "}");
         //when
         Thread.sleep(5000, 0);
-        List<UserDto> users = userRepository.findAll();
+        List<UserModel> users = userRepository.findAll();
         //then
         assertThat(users.stream().filter(user -> (Objects.equals(user.keycloakId(), KEYCLOAK_ID) && Objects.equals(user.login(), USERNAME)  && Objects.equals(user.email(), EMAIL)))).isNotEmpty();
     }

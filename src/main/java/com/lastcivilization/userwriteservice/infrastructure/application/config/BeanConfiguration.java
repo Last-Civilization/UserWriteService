@@ -1,11 +1,10 @@
 package com.lastcivilization.userwriteservice.infrastructure.application.config;
 
-import com.lastcivilization.userwriteservice.domain.UserServiceImp;
+import com.lastcivilization.userwriteservice.domain.UserService;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
 import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
-import com.lastcivilization.userwriteservice.domain.port.UserService;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,6 +19,6 @@ class BeanConfiguration {
 
     @Bean
     public UserService userService(UserRepository userRepository, EquipmentService equipmentService, StatsService statsService, PaymentService paymentService){
-        return new UserServiceImp(statsService,equipmentService, paymentService, userRepository);
+        return new UserService(statsService,equipmentService, paymentService, userRepository);
     }
 }

@@ -1,6 +1,6 @@
 package com.lastcivilization.userwriteservice.domain;
 
-import com.lastcivilization.userwriteservice.domain.dto.UserDto;
+import com.lastcivilization.userwriteservice.domain.view.UserModel;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
 import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class UserServiceImpTest {
+class UserServiceTest {
 
     private static final String USER_LOGIN = "LOGIN";
     private static final String USER_EMAIL = "EMAIL";
@@ -33,7 +33,7 @@ class UserServiceImpTest {
     private PaymentService paymentService;
 
     @InjectMocks
-    private UserServiceImp underTest;
+    private UserService underTest;
 
     @Test
     void shouldCreateUser() {
@@ -41,15 +41,15 @@ class UserServiceImpTest {
         when(equipmentService.createNewEquipment()).thenReturn(0L);
         when(statsService.createNewStats()).thenReturn(0L);
         when(paymentService.createNewAccount()).thenReturn(0L);
-        doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(userRepository).save(any(UserDto.class));
-        UserDto expectedDto = buildUserDto();
+        doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(userRepository).save(any(UserModel.class));
+        UserModel expectedDto = buildUserDto();
         //when
-        UserDto userDto = underTest.createUser(USER_LOGIN, USER_EMAIL, USER_KEYCLOAK_ID);
+        UserModel userModel = underTest.createUser(USER_LOGIN, USER_EMAIL, USER_KEYCLOAK_ID);
         //then
-        assertThat(userDto).isEqualTo(expectedDto);
+        assertThat(userModel).isEqualTo(expectedDto);
     }
 
-    private UserDto buildUserDto() {
-        return new UserDto(null, USER_KEYCLOAK_ID, USER_LOGIN, USER_EMAIL, 0L, 0L, 0L);
+    private UserModel buildUserDto() {
+        return new UserModel(null, USER_KEYCLOAK_ID, USER_LOGIN, USER_EMAIL, 0L, 0L, 0L);
     }
 }

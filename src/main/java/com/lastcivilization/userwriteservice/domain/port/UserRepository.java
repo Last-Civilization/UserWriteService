@@ -1,12 +1,12 @@
 package com.lastcivilization.userwriteservice.domain.port;
 
-import com.lastcivilization.userwriteservice.domain.dto.UserDto;
+import com.lastcivilization.userwriteservice.domain.view.UserModel;
 
 import java.util.List;
 
 public interface UserRepository {
 
-    UserDto save(UserDto userDto);
+    UserModel save(UserModel userModel);
 
-    List<UserDto> findAll();
+    List<UserModel> findAll();
 }

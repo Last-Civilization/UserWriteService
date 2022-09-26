@@ -1,6 +1,6 @@
-package com.lastcivilization.userwriteservice.domain.dto;
+package com.lastcivilization.userwriteservice.domain.view;
 
-public record UserDto (
+public record UserModel(
         Long id,
         String keycloakId,
         String login,
