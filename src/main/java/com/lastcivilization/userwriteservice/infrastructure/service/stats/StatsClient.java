@@ -3,6 +3,8 @@ package com.lastcivilization.userwriteservice.infrastructure.service.stats;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,4 +14,7 @@ public interface StatsClient {
 
     @PostMapping("/stats")
     Stats createNewStats();
+
+    @DeleteMapping("/stats/{id}")
+    void deleteStats(@PathVariable long id);
 }

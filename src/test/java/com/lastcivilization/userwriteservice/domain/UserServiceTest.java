@@ -1,5 +1,6 @@
 package com.lastcivilization.userwriteservice.domain;
 
+import com.lastcivilization.userwriteservice.domain.port.KeycloakService;
 import com.lastcivilization.userwriteservice.domain.view.UserModel;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
 import com.lastcivilization.userwriteservice.domain.port.PaymentService;
@@ -31,6 +32,9 @@ class UserServiceTest {
     private UserRepository userRepository;
     @Mock
     private PaymentService paymentService;
+
+    @Mock
+    private KeycloakService keycloakService;
 
     @InjectMocks
     private UserService underTest;

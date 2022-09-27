@@ -2,6 +2,7 @@ package com.lastcivilization.userwriteservice.infrastructure.application.config;
 
 import com.lastcivilization.userwriteservice.domain.UserService;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
+import com.lastcivilization.userwriteservice.domain.port.KeycloakService;
 import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
@@ -18,7 +19,18 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 class BeanConfiguration {
 
     @Bean
-    public UserService userService(UserRepository userRepository, EquipmentService equipmentService, StatsService statsService, PaymentService paymentService){
-        return new UserService(statsService,equipmentService, paymentService, userRepository);
+    public UserService userService(UserRepository userRepository, EquipmentService equipmentService, StatsService statsService, PaymentService paymentService
+            , KeycloakService keycloakService){
+        return new UserService(statsService,equipmentService, paymentService, userRepository, keycloakService);
+    }
+
+    @Bean
+    public KeycloakService keycloakService(){
+        return new KeycloakService() {
+            @Override
+            public void deleteUser(String keycloakId) {
+
+            }
+        };
     }
 }

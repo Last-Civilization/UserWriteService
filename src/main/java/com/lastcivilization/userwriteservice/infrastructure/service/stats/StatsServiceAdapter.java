@@ -1,7 +1,9 @@
 package com.lastcivilization.userwriteservice.infrastructure.service.stats;
 
+import com.lastcivilization.userwriteservice.domain.exception.ApplicationException;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
 import com.lastcivilization.userwriteservice.infrastructure.service.stats.StatsClient;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,15 @@ class StatsServiceAdapter implements StatsService {
 
     @Override
     public Long createNewStats() {
-        return statsClient.createNewStats().id();
+        try {
+            return statsClient.createNewStats().id();
+        }catch (FeignException exception){
+            throw new ApplicationException(exception.getMessage());
+        }
+    }
+
+    @Override
+    public void deleteStats(long id) {
+        statsClient.deleteStats(id);
     }
 }

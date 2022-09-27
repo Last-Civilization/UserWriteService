@@ -3,4 +3,6 @@ package com.lastcivilization.userwriteservice.domain.port;
 public interface StatsService {
 
     Long createNewStats();
+
+    void deleteStats(long id);
 }
