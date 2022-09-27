@@ -29,7 +29,7 @@ class UserEntity {
     private String keycloakId;
     private String login;
     private String email;
-    private Long stats;
-    private Long equipment;
-    private Long account;
+    private long stats;
+    private long equipment;
+    private long account;
 }

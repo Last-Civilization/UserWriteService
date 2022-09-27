@@ -6,11 +6,11 @@ class User {
     private String keycloakId;
     private String login;
     private String email;
-    private Long stats;
-    private Long equipment;
-    private Long account;
+    private long stats;
+    private long equipment;
+    private long account;
 
-    User(Long id, String keycloakId, String login, String email, Long stats, Long equipment, Long account) {
+    User(Long id, String keycloakId, String login, String email, long stats, long equipment, long account) {
         this.id = id;
         this.keycloakId = keycloakId;
         this.login = login;
@@ -56,7 +56,7 @@ class User {
         return stats;
     }
 
-    void setStats(Long stats) {
+    void setStats(long stats) {
         this.stats = stats;
     }
 
@@ -64,7 +64,7 @@ class User {
         return equipment;
     }
 
-    void setEquipment(Long equipment) {
+    void setEquipment(long equipment) {
         this.equipment = equipment;
     }
 
@@ -72,7 +72,7 @@ class User {
         return account;
     }
 
-    void setAccount(Long account) {
+    void setAccount(long account) {
         this.account = account;
     }
 
@@ -82,9 +82,9 @@ class User {
         private String keycloakId;
         private String login;
         private String email;
-        private Long stats;
-        private Long equipment;
-        private Long account;
+        private long stats;
+        private long equipment;
+        private long account;
 
         private Builder() {
         }
@@ -113,17 +113,17 @@ class User {
             return this;
         }
 
-        Builder stats(Long stats) {
+        Builder stats(long stats) {
             this.stats = stats;
             return this;
         }
 
-        Builder equipment(Long equipment) {
+        Builder equipment(long equipment) {
             this.equipment = equipment;
             return this;
         }
 
-        Builder account(Long account){
+        Builder account(long account){
             this.account = account;
             return this;
         }
