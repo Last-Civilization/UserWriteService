@@ -3,6 +3,7 @@ package com.lastcivilization.userwriteservice.infrastructure.application.config;
 import com.lastcivilization.userwriteservice.domain.UserService;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
 import com.lastcivilization.userwriteservice.domain.port.KeycloakService;
+import com.lastcivilization.userwriteservice.domain.port.Logger;
 import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
@@ -20,8 +21,8 @@ class BeanConfiguration {
 
     @Bean
     public UserService userService(UserRepository userRepository, EquipmentService equipmentService, StatsService statsService, PaymentService paymentService
-            , KeycloakService keycloakService){
-        return new UserService(statsService,equipmentService, paymentService, userRepository, keycloakService);
+            , KeycloakService keycloakService, Logger logger){
+        return new UserService(statsService,equipmentService, paymentService, userRepository, keycloakService, logger);
     }
 
     @Bean
