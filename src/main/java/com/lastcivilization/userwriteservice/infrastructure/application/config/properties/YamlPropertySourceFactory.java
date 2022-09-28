@@ -1,4 +1,4 @@
-package com.lastcivilization.userwriteservice.infrastructure.application.config;
+package com.lastcivilization.userwriteservice.infrastructure.application.config.properties;
 
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.env.PropertiesPropertySource;

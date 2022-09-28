@@ -18,7 +18,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("com.lastcivilization.userwriteservice")
 @EnableJpaRepositories("com.lastcivilization.userwriteservice.infrastructure.database")
 @EntityScan("com.lastcivilization.userwriteservice.infrastructure.database")
-@PropertySource(value = "classpath:keycloak.yml", factory = YamlPropertySourceFactory.class)
 class BeanConfiguration {
 
     @Bean
