@@ -7,7 +7,6 @@ import org.keycloak.admin.client.KeycloakBuilder;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.admin.client.resource.UserResource;
 import org.keycloak.admin.client.resource.UsersResource;
-import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,9 +18,8 @@ class KeycloakServiceAdapter implements KeycloakService {
     @Override
     public void deleteUser(String keycloakId) {
         Keycloak keycloak = buildKeyCloak();
-        UserResource userResource = getUserResource(keycloakId,
+        deleteResource(keycloakId,
                 keycloak);
-        userResource.remove();
     }
 
     private Keycloak buildKeyCloak() {
@@ -34,11 +32,10 @@ class KeycloakServiceAdapter implements KeycloakService {
                 .build();
     }
 
-    private UserResource getUserResource(String keycloakId, Keycloak keycloak) {
+    private void deleteResource(String keycloakId, Keycloak keycloak) {
         RealmResource realmResource =
                 keycloak.realm(keycloakProperties.getRealm());
         UsersResource usersResource = realmResource.users();
-        UserResource userResource = usersResource.get(keycloakId);
-        return userResource;
+        usersResource.delete(keycloakId);
     }
 }

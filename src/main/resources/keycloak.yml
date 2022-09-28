@@ -1,7 +1,7 @@
 keycloak:
   authUrl: http://localhost:8080/auth
-  realm: LastCivilization
+  realm: last-civilization
   masterRealm: master
   clientId: admin-cli
-  username: admin
-  password: admin
+  username: last-civilization
+  password: last-civilization
