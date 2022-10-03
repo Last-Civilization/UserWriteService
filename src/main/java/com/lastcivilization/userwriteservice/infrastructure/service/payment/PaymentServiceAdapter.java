@@ -21,9 +21,4 @@ class PaymentServiceAdapter implements PaymentService {
             throw new ApplicationException(exception.getMessage());
         }
     }
-
-    @Override
-    public void deleteAccount(long id) {
-        paymentClient.deleteAccount(id);
-    }
 }

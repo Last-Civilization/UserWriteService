@@ -1,12 +1,10 @@
 package com.lastcivilization.userwriteservice.domain;
 
-import com.lastcivilization.userwriteservice.domain.port.KeycloakService;
 import com.lastcivilization.userwriteservice.domain.view.UserModel;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
 import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
-import liquibase.pro.packaged.I;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -33,9 +31,6 @@ class UserServiceTest {
     private UserRepository userRepository;
     @Mock
     private PaymentService paymentService;
-
-    @Mock
-    private KeycloakService keycloakService;
 
     @InjectMocks
     private UserService underTest;

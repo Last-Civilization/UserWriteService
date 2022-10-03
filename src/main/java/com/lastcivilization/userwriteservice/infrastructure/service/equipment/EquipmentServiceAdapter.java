@@ -22,9 +22,4 @@ class EquipmentServiceAdapter implements EquipmentService {
             throw new ApplicationException(exception.getMessage());
         }
     }
-
-    @Override
-    public void deleteEquipment(long id) {
-        equipmentClient.deleteEquipment(id);
-    }
 }

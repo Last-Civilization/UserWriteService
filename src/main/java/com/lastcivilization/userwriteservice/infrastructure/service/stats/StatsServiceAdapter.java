@@ -23,9 +23,4 @@ class StatsServiceAdapter implements StatsService {
             throw new ApplicationException(exception.getMessage());
         }
     }
-
-    @Override
-    public void deleteStats(long id) {
-        statsClient.deleteStats(id);
-    }
 }

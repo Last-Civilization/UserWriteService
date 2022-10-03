@@ -1,7 +1,7 @@
 package com.lastcivilization.userwriteservice.domain.port;
 
-public interface EquipmentService {
+import com.uber.cadence.activity.ActivityMethod;
 
+public interface EquipmentService {
     Long createNewEquipment();
-    void deleteEquipment(long id);
 }
