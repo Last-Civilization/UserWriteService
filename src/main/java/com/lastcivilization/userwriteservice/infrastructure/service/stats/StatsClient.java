@@ -14,7 +14,4 @@ public interface StatsClient {
 
     @PostMapping("/stats")
     Stats createNewStats();
-
-    @DeleteMapping("/stats/{id}")
-    void deleteStats(@PathVariable long id);
 }

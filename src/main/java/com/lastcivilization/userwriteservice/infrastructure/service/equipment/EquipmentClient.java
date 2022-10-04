@@ -14,7 +14,4 @@ public interface EquipmentClient {
 
     @PostMapping("/equipments")
     Equipment createNewEquipment();
-
-    @DeleteMapping("/equipments/{id}")
-    void deleteEquipment(@PathVariable long id);
 }

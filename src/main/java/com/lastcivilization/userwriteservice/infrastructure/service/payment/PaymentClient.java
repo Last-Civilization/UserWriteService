@@ -12,7 +12,4 @@ public interface PaymentClient {
 
     @PostMapping("/payments")
     Payment createNewAccount();
-
-    @DeleteMapping("/payments/{id}")
-    void deleteAccount(@PathVariable long id);
 }
