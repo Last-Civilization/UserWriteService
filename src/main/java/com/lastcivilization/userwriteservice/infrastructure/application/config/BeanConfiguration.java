@@ -4,6 +4,7 @@ import com.lastcivilization.userwriteservice.domain.UserService;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
 import com.lastcivilization.userwriteservice.domain.port.PaymentService;
 import com.lastcivilization.userwriteservice.domain.port.StatsService;
+import com.lastcivilization.userwriteservice.domain.port.UserCreateSage;
 import com.lastcivilization.userwriteservice.domain.port.UserRepository;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +19,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 class BeanConfiguration {
 
     @Bean
-    public UserService userService(UserRepository userRepository, EquipmentService equipmentService, StatsService statsService, PaymentService paymentService){
-        return new UserService(statsService,equipmentService, paymentService, userRepository);
+    public UserService userService(UserRepository userRepository, EquipmentService equipmentService, StatsService statsService, PaymentService paymentService
+            , UserCreateSage userCreateSage){
+        return new UserService(statsService,equipmentService, paymentService, userRepository, userCreateSage);
     }
 }

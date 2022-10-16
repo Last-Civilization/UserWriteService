@@ -17,6 +17,8 @@ import org.springframework.context.annotation.Import;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.put;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -29,7 +31,31 @@ class WireMockConfiguartion {
         mockEquipment(wireMockServer);
         mockPayments(wireMockServer);
         mockStats(wireMockServer);
+        mockSage(wireMockServer);
         return wireMockServer;
+    }
+
+    private void mockSage(WireMockServer wireMockServer){
+        wireMockServer.stubFor(put(WireMock.urlMatching("/users/workflows/.*/equipments/.*"))
+                .willReturn(aResponse()
+                        .withStatus(OK.value())
+                        .withHeader("Content-Type", APPLICATION_JSON_VALUE)
+                        .withBody("workflowId")));
+        wireMockServer.stubFor(put(WireMock.urlMatching("/users/workflows/.*/stats/.*"))
+                .willReturn(aResponse()
+                        .withStatus(OK.value())
+                        .withHeader("Content-Type", APPLICATION_JSON_VALUE)
+                        .withBody("workflowId")));
+        wireMockServer.stubFor(put(WireMock.urlMatching("/users/workflows/.*/accounts/.*"))
+                .willReturn(aResponse()
+                        .withStatus(OK.value())
+                        .withHeader("Content-Type", APPLICATION_JSON_VALUE)
+                        .withBody("workflowId")));
+        wireMockServer.stubFor(get(WireMock.urlEqualTo("/users/workflows"))
+                .willReturn(aResponse()
+                        .withStatus(OK.value())
+                        .withHeader("Content-Type", APPLICATION_JSON_VALUE)
+                        .withBody("workflowId")));
     }
 
     private void mockEquipment(WireMockServer wireMockServer){

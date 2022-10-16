@@ -1,5 +1,6 @@
 package com.lastcivilization.userwriteservice.domain;
 
+import com.lastcivilization.userwriteservice.domain.port.UserCreateSage;
 import com.lastcivilization.userwriteservice.domain.view.UserModel;
 import com.lastcivilization.userwriteservice.domain.port.EquipmentService;
 import com.lastcivilization.userwriteservice.domain.port.PaymentService;
@@ -13,7 +14,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,15 +35,19 @@ class UserServiceTest {
     @Mock
     private PaymentService paymentService;
 
+    @Mock
+    private UserCreateSage userCreateSage;
+
     @InjectMocks
     private UserService underTest;
 
     @Test
     void shouldCreateUser() {
         //given
-        when(equipmentService.createNewEquipment()).thenReturn(0L);
-        when(statsService.createNewStats()).thenReturn(0L);
-        when(paymentService.createNewAccount()).thenReturn(0L);
+        when(equipmentService.createNewEquipment(anyString())).thenReturn(0L);
+        when(statsService.createNewStats(anyString())).thenReturn(0L);
+        when(paymentService.createNewAccount(anyString())).thenReturn(0L);
+        when(userCreateSage.startWorkflow()).thenReturn("workflowId");
         doAnswer(invocationOnMock -> invocationOnMock.getArgument(0)).when(userRepository).save(any(UserModel.class));
         UserModel expectedDto = buildUserDto();
         //when

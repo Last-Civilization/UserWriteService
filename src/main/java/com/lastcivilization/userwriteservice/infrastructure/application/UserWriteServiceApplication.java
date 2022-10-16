@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients(basePackages = "com.lastcivilization.userwriteservice.infrastructure.service")
+@EnableFeignClients(basePackages = "com.lastcivilization.userwriteservice.infrastructure")
 public class UserWriteServiceApplication {
 
     public static void main(String[] args) {
